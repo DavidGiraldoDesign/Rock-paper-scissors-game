@@ -1,12 +1,12 @@
 let canvas;
 
 const PORT = 5050;
-const IPaddress = 'localhost';
+const IPaddress = '192.168.1.5';
 
 let player = {
-    name: 'David',
+    name: '',
     move: ''
-}
+};
 
 let userInput;
 
@@ -74,6 +74,13 @@ function mouseClicked() {
     buttonHotSpot(scissor);
 }
 
+function touchEnded() {
+    //background(255,0,0);
+    buttonHotSpot(rock);
+    buttonHotSpot(paper);
+    buttonHotSpot(scissor);
+}
+
 function keyPressed() {
     if (keyCode === RETURN) {
         console.log(`player name ${player.name}`);
@@ -86,8 +93,6 @@ function myInputEvent() {
 }
 
 function moveButton(element) {
-    //fill(255);
-    //ellipse(element.posX, element.posY, sizeButton, sizeButton);
     fill(0);
     textSize(50);
     text(element.move, element.posX - (sizeButton / 3), element.posY + (sizeButton / 3));
@@ -105,9 +110,7 @@ function buttonHotSpot(element) {
 
 //---------------------------------------- async fetch functions
 async function sendPlayer(player) {
-
     let bodyJSON = JSON.stringify(player);
-
     const putRequest = {
         method: 'POST',
         headers: {
@@ -115,7 +118,6 @@ async function sendPlayer(player) {
         },
         body: bodyJSON
     }
-
     const request = await fetch(`http://${IPaddress}:${PORT}/player`, putRequest);
 }
 

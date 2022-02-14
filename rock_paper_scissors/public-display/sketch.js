@@ -4,7 +4,7 @@ let counter = 10;
 let players = [];
 
 const PORT = 5050;
-const IPaddress = 'localhost';
+const IPaddress = '192.168.1.5';
 
 function setup() {
     canvas = createCanvas(windowWidth, windowHeight);
