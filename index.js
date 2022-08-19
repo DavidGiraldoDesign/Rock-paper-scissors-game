@@ -35,7 +35,8 @@ serverApp.get('/display', (request, response) => {
 
 
 //---------------------------- Data base
-let players = []; // {name: ‘’, move: ‘’}
+let players = []; 
+// player structure =  {name: ‘’, move: ‘’}
 
 //---------------------------- API Endpoints
 
