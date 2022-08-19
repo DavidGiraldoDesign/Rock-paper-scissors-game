@@ -1,7 +1,6 @@
 let canvas;
-
-const PORT = 5050;
-const IPaddress = '192.168.1.5';
+console.log('Server DNS: ',getDNS);
+const DNS = getDNS;
 
 let player = {
     name: '',
@@ -110,28 +109,11 @@ function buttonHotSpot(element) {
 
 //---------------------------------------- async fetch functions
 async function sendPlayer(player) {
-    let bodyJSON = JSON.stringify(player);
-    const putRequest = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: bodyJSON
-    }
-    const request = await fetch(`http://${IPaddress}:${PORT}/player`, putRequest);
+    //Send a player
+    // You may want to use `${DNS}/player` as the endpoint
 }
 
 async function sendMove(player) {
-
-    let bodyJSON = JSON.stringify(player);
-
-    const putRequest = {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: bodyJSON
-    }
-
-    const request = await fetch(`http://${IPaddress}:${PORT}/make-a-move`, putRequest);
+    //Send a player's move
+    // You may want to use `${DNS}/make-a-move` as the endpoint
 }

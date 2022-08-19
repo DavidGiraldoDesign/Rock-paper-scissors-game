@@ -3,8 +3,8 @@ let time = 0;
 let counter = 10;
 let players = [];
 
-const PORT = 5050;
-const IPaddress = '192.168.1.5';
+console.log('Server DNS: ',getDNS);
+const DNS = getDNS;
 
 function setup() {
     canvas = createCanvas(windowWidth, windowHeight);
@@ -22,7 +22,6 @@ function draw() {
         text(players[i].name, 100, 150 + (i * 60));
         text(players[i].move, 300, 150 + (i * 60));
     }
-
 
 
     time++;
@@ -52,15 +51,6 @@ function mouseClicked() {
 
 //---------------------------------------- async fetch functions
 async function updateMoves() {
-
-    const putRequest = {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-        }
-    }
-    const request = await fetch(`http://${IPaddress}:${PORT}/moves`, putRequest);
-    const data = await request.json();
-    console.log('data: ' + data);
-    players = data;
+    // Update all players' moves
+    // You may want to use `${DNS}/moves` as the endpoint
 }
